@@ -2,8 +2,23 @@
 
 - [How to configure git](#how-to-configure-git)
 - [How to use a ssh key](#how-to-use-a-ssh-key)
+    - [Checking for Existing SSH Keys](#checking-for-existing-ssh-keys)
+        - [In Linux and Mac](#in-linux-and-mac)
+        - [In Windows](#in-windows)
+    - [Generating a new SSH key and adding it to the machine's SSH agent](#generating-a-new-ssh-key-and-adding-it-to-the-machines-ssh-agent)
+        - [Generating a new SSH key](#generating-a-new-ssh-key)
+
+            - [In Linux and Mac](#in-linux-and-mac-1)
+            - [In Windows](#in-windows-1)
+        - [Adding SSH key to the ssh-agent](#adding-ssh-key-to-the-ssh-agent)
+            - [In Linux](#in-linux)
+            - [In Mac](#in-mac)
+            - [in Windows](#in-windows-2)
+    - [Adding SSH Public Key to Github Server](#adding-ssh-public-key-to-github-server)
 - [How to write a proper commit message](#how-to-write-a-proper-commit-message)
-- [Version Controlling](#version-controlling)
+    - [The Seven Rules of a Proper Git Commit Message](#the-seven-rules-of-a-proper-git-commit-message)
+    - [Semantic Commit Messages](#semantic-commit-d)
+- [Versioning Policy ](#version-controlling)
 - [Copyright and License Tags](#copyright-and-license-tags)
 
 ## How to Configure Git
@@ -42,6 +57,7 @@ When you connect via SSH, you authenticate using a private key file on your loca
 
 ### Generating a new SSH key and adding it to the machine's SSH agent
 
+### Generating a new SSH key
 You can generate a new SSH key on your local machine. After you generate the key, you can add the public key to your account on GitHub AE to enable authentication for Git operations over SSH.
 #### In Linux and Mac : 
 1. Open Terminal
@@ -170,18 +186,22 @@ After adding a new SSH authentication key to your account on GitHub.com, you can
 2. Limit the subject line to 50 characters
 3. Capitalize the subject line
 4. Do not end the subject line with a period
-5. Use the imperative mood in the subject line
+5. Use the imperative mood and simple present tense in the subject line
 6. Wrap the body at 72 characters
 7. Use the body to explain what and why vs. how
 
 **You can also read the official document from "5.2 Distributed Git - Contributing to a Project", [Here](https://www.git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_commit_guidelines)**
 
 ### Semantic Commit Messages
-Always use one of the following commit tags at the beginning of your commmit messages
+Always use one of the following commit tags at the beginning of your commmit.
 
 1. #### [init]
 
     When starting a new project as the first commit.
+
+    #### Example :
+
+        [init] Initialize ABACService
 
 2. #### [feature]
 
@@ -189,14 +209,14 @@ Always use one of the following commit tags at the beginning of your commmit mes
 
     #### Example :
 
-        [feature] Initialize Login Dashboard
+        [feature] Initialize Login dashboard
 
 2. #### [implementation]
 
     When adding new sections to a Feature.
 
     #### Example :
-        [implementation] Add AccessDicision 
+        [implementation] Add Accessdicision 
 3. ####  [improvement]
 
     When improving sections of a Feature.
@@ -219,12 +239,59 @@ Always use one of the following commit tags at the beginning of your commmit mes
     #### Example :
         [test] Test UserService regesterUser
 
-
-
 ## Version Controlling
 
-Still not completed
+As we have not established a versioning policy yet, we will discuss all proposed versions in a public session. You are required to consult with your seniors or release managers prior to making any changes to the versions.
+
 
 ## Copyright and License Tags
 
-Still not completed
+### In JetBrains IDE's:
+1. Press `Ctrl` `Alt` `S` to open the IDE settings and then select **Editor | Copyright | Copyright Profiles**.
+
+2. To configure the default profile for all newly created projects, select **File | New Projects Setup | Settings for New Projects**.
+
+3. Click **+** and "Kar.center" name the new profile.
+
+4. Enter the copyright notice text.
+
+        Copyright (c) $originalComment.match("Copyright \(c\) (\d+)", 1, "-", "$today.year")$today.year. 
+        All rights reserved. 
+        This code is the property of 'Kar.center' and may not be reproduced or distributed without permission. 
+        Author: Example Name 
+        Contact: example@example.com
+- After 
+
+        /*
+        * Copyright (c) 2024. 
+        * All rights reserved. 
+        * This code is the property of 'Kar.center' and  may not be reproduced or distributed without permission. 
+        * Author: Sam Rocky 
+        * Contact: samrocky404@gmail.com
+        */
+5. Once the profile is configured, you can select the scope of files to which you want to add the text or set this profile as the default profile for all files in the project that are not included to any scope.
+
+#### Assign a profile to a scope of files
+Select the scope of files to which you want to add the configured copyright text:
+1. Press `Ctrl` `Alt` `S` to open the IDE settings and then select **Editor | Copyright**.
+
+2. Click **+** (or press `Alt` `Insert`), and select an existing shared scope from the list.
+
+    You can define a new scope if necessary. Click the **Select Scopes to add scopes or modify existing ones** link in the lower part of the page.
+
+3. From the **Copyright** list, select the profile that you want to link with the scope.
+
+4. Apply the changes and close the dialog.
+
+<center><img src="https://resources.jetbrains.com/help/img/idea/2023.3/copyright_dialog.png" alt="copy right" width="80%" height="auto"></center>
+
+After that you can add the copyright to the necessary files.
+
+#### Insert copyright text into files
+- To insert the text in a single file, open it in the editor, press `Alt` `Insert`, and select **Copyright** from the popup.
+
+- To insert the text into a group of files, right-click a node in the **Project** tool window, and select **Update Copyright**. You will be prompted to select in which scope you want to update the notice.
+
+    A node may include files that belong to different scopes. In this case, copyright notices will be generated according to the assigned profiles.
+
+    If a node contains a file that doesn't belong to any scope, the IDE will assign the default profile to it.
