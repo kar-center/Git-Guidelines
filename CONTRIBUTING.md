@@ -20,6 +20,7 @@
     - [Semantic Commit Messages](#semantic-commit-d)
 - [Versioning Policy ](#version-controlling)
 - [Copyright and License Tags](#copyright-and-license-tags)
+    - [In JetBrains IDE's](#in-jetbrains-ides)
 
 ## How to Configure Git
 - Be sure to config both the user.name, user.email and defualt branch name in your local git config
