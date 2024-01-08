@@ -7,12 +7,15 @@
 - [Copyright and License Tags](#copyright-and-license-tags)
 
 ## How to Configure Git
-- Be sure to define both the user.name and user.email in your local git config
+- Be sure to config both the user.name, user.email and defualt branch name in your local git config
 
   `$ git config --global user.name "example name"`
 
   `$ git config --global user.email "example@example.com"`
 
+  `$ git config --global init.defaultBranch master`
+
+    > NOTE: Please use your full and real name and not a nickname and also use the email connected to your GitHub account.
 ## How to Use a SSH key 
 You can access and write data in repositories on Github.com using SSH **(Secure Shell Protocol)**.
 When you connect via SSH, you authenticate using a private key file on your local machine and a public key on Github.com servers. For more information, see ["About SSH"](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh)
@@ -34,7 +37,7 @@ When you connect via SSH, you authenticate using a private key file on your loca
 1. Open Git Bash 
 2. Follow the next steps
 
-**NOTE:** If you already have an **id_rsa.pub** file procees to [This Section](#adding-ssh-public-key-to-github-server)
+> **NOTE:** If you already have an **id_rsa.pub** file proceed to [This Section](#adding-ssh-public-key-to-github-server)
 
 
 ### Generating a new SSH key and adding it to the machine's SSH agent
@@ -225,4 +228,3 @@ Still not completed
 ## Copyright and License Tags
 
 Still not completed
-
