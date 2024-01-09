@@ -1,29 +1,29 @@
 # Kar Center Git Guidelines and Specifications
 
 - [How to configure git](#how-to-configure-git)
-- [How to use a ssh key](#how-to-use-a-ssh-key)
+- [How to use an ssh key](#how-to-use-an-ssh-key-)
     - [Checking for Existing SSH Keys](#checking-for-existing-ssh-keys)
-        - [In Linux and Mac](#in-linux-and-mac)
-        - [In Windows](#in-windows)
+        - [In Linux and Mac](#in-linux-and-mac-)
+        - [In Windows](#in-windows-)
     - [Generating a new SSH key and adding it to the machine's SSH agent](#generating-a-new-ssh-key-and-adding-it-to-the-machines-ssh-agent)
         - [Generating a new SSH key](#generating-a-new-ssh-key)
 
-            - [In Linux and Mac](#in-linux-and-mac-1)
-            - [In Windows](#in-windows-1)
+            - [In Linux and Mac](#in-linux-and-mac--)
+            - [In Windows](#in-windows-)
         - [Adding SSH key to the ssh-agent](#adding-ssh-key-to-the-ssh-agent)
-            - [In Linux](#in-linux)
-            - [In Mac](#in-mac)
-            - [in Windows](#in-windows-2)
-    - [Adding SSH Public Key to Github Server](#adding-ssh-public-key-to-github-server)
+            - [In Linux](#in-linux--)
+            - [In Mac](#in-mac-)
+            - [in Windows](#in-windows--)
+    - [Adding SSH Public Key to GitHub Server](#adding-ssh-public-key-to-github-server)
 - [How to write a proper commit message](#how-to-write-a-proper-commit-message)
     - [The Seven Rules of a Proper Git Commit Message](#the-seven-rules-of-a-proper-git-commit-message)
-    - [Semantic Commit Messages](#semantic-commit-d)
+    - [Semantic Commit Messages](#semantic-commit-messages)
 - [Versioning Policy ](#version-controlling)
 - [Copyright and License Tags](#copyright-and-license-tags)
     - [In JetBrains IDE's](#in-jetbrains-ides)
 
 ## How to Configure Git
-- Be sure to config both the user.name, user.email and defualt branch name in your local git config
+- Be sure to config both the user.name, user.email and default branch name in your local git config
 
   `$ git config --global user.name "example name"`
 
@@ -32,13 +32,13 @@
   `$ git config --global init.defaultBranch master`
 
     > NOTE: Please use your full and real name and not a nickname and also use the email connected to your GitHub account.
-## How to Use a SSH key 
-You can access and write data in repositories on Github.com using SSH **(Secure Shell Protocol)**.
-When you connect via SSH, you authenticate using a private key file on your local machine and a public key on Github.com servers. For more information, see ["About SSH"](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh)
+## How to Use an SSH key 
+You can access and write data in repositories on GitHub.com using SSH **(Secure Shell Protocol)**.
+When you connect via SSH, you authenticate using a private key file on your local machine and a public key on GitHub.com servers. For more information, see ["About SSH"](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh)
 
 - [Checking for existing SSH keys.](#checking-for-existing-ssh-keys)
 - [Generating a new SSH key and adding it to the machine's SSH agent.](#generating-a-new-ssh-key-and-adding-it-to-the-machines-ssh-agent)
-- [Adding SSH Public Key to Github Server](#adding-ssh-public-key-to-github-server)
+- [Adding SSH Public Key to GitHub Server](#adding-ssh-public-key-to-github-server)
 ### Checking for Existing SSH Keys
 #### in Linux and Mac :
 1. Open Terminal
@@ -51,7 +51,13 @@ When you connect via SSH, you authenticate using a private key file on your loca
 
 #### in Windows : 
 1. Open Git Bash 
-2. Follow the next steps
+2. Enter `ls -al ~/.ssh` to see if existing SSH keys are present.
+
+        $ ls -al ~/.ssh\
+        # Lists the files in your .ssh directory, if they exist
+
+3. Check the directory listing to see if you already have a public SSH key. By default, the filename of a supported public key for GitHub AE is **id_rsa.pub**.
+
 
 > **NOTE:** If you already have an **id_rsa.pub** file proceed to [This Section](#adding-ssh-public-key-to-github-server)
 
@@ -81,7 +87,22 @@ You can generate a new SSH key on your local machine. After you generate the key
 
 #### In Windows :
 1. Open Git Bash
-2. Follow the next steps
+2. Paste the text below, replacing the email used in the example with your GitHub AE email address.
+
+    `$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`
+
+     This creates a new SSH key, using the provided email as a label.
+    
+    `> Generating public/private ALGORITHM key pair.`
+
+    When you're prompted to "Enter a file in which to save the key", you can press Enter to accept the default file location. Please note that if you created SSH keys previously, ssh-keygen may ask you to rewrite another key, in which case we recommend creating a custom-named SSH key. To do so, type the default file location and replace id_ALGORITHM with your custom key name.
+
+    `> Enter a file in which to save the key (/home/YOU/.ssh/id_ALGORITHM):[Press enter]`
+3. At the prompt, type a secure passphrase.
+
+    `> Enter passphrase (empty for no passphrase): [Type a passphrase]`
+
+    `> Enter same passphrase again: [Type passphrase again]`
 ### Adding SSH key to the ssh-agent
 #### In Linux : 
 1. Start the ssh-agent in the background.
@@ -146,7 +167,7 @@ You can generate a new SSH key on your local machine. After you generate the key
     `ssh-add c:\Users\YOU\.ssh\id_ed25519`
 
 
-### Adding SSH Public Key to Github Server
+### Adding SSH Public Key to GitHub Server
 
 You can add an SSH key and use it for authentication, or commit signing, or both. If you want to use the same SSH key for both authentication and signing, you need to upload it twice.
 
@@ -180,7 +201,7 @@ After adding a new SSH authentication key to your account on GitHub.com, you can
 
 ## How to Write a Proper Commit Message
 
-<center><img src="https://cbea.ms/content/images/size/w2000/2021/01/git_commit_2x.png" alt="a meme " width="80%" height="auto"></center>
+<p align="center"><img src="https://cbea.ms/content/images/size/w2000/2021/01/git_commit_2x.png" alt="a meme " width="80%" height="auto"></p>
 
 ### The Seven Rules of a Proper Git Commit Message
 1. Separate subject from body with a blank line
@@ -194,7 +215,7 @@ After adding a new SSH authentication key to your account on GitHub.com, you can
 **You can also read the official document from "5.2 Distributed Git - Contributing to a Project", [Here](https://www.git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_commit_guidelines)**
 
 ### Semantic Commit Messages
-Always use one of the following commit tags at the beginning of your commmit.
+Always use one of the following commit tags at the beginning of your commit.
 
 1. #### [init]
 
@@ -206,19 +227,19 @@ Always use one of the following commit tags at the beginning of your commmit.
 
 2. #### [feature]
 
-    A new feature (also small additions). Most likely it will be an added feature, but it could also be removed. This can only happen in "master" branch or when ceating a new branch, because no new features are allowed in older branches. Exceptions to this  ve to be discussed on a case-to-case basis with the corresponding release managers.
+    A new feature (also small additions). Most likely it will be an added feature, but it could also be removed. This can only happen in "master" branch or when creating a new branch, because no new features are allowed in older branches. Exceptions to this  ve to be discussed on a case-to-case basis with the corresponding release managers.
 
     #### Example :
 
         [feature] Initialize Login dashboard
 
-2. #### [implementation]
+3. #### [implementation]
 
     When adding new sections to a Feature.
 
     #### Example :
         [implementation] Add Accessdicision 
-3. ####  [improvement]
+4. ####  [improvement]
 
     When improving sections of a Feature.
 
@@ -232,7 +253,7 @@ Always use one of the following commit tags at the beginning of your commmit.
         [bugfix] Remove starter code - Fix liquibase
 6. #### [refactor]
 
-    Refactoring production code, eg. renaming a variable
+    Refactoring production code, e.g. renaming a variable
 
     #### Example :
         [refactor] Rename memberId to userId
@@ -261,14 +282,14 @@ As we have not established a versioning policy yet, we will discuss all proposed
         This code is the property of 'Kar.center' and may not be reproduced or distributed without permission. 
         Author: Example Name 
         Contact: example@example.com
-- After 
+- After interpretation
 
         /*
         * Copyright (c) 2024. 
         * All rights reserved. 
         * This code is the property of 'Kar.center' and  may not be reproduced or distributed without permission. 
-        * Author: Sam Rocky 
-        * Contact: samrocky404@gmail.com
+        * Author: Example Name 
+        * Contact: example@example.com
         */
 5. Once the profile is configured, you can select the scope of files to which you want to add the text or set this profile as the default profile for all files in the project that are not included to any scope.
 
@@ -284,7 +305,7 @@ Select the scope of files to which you want to add the configured copyright text
 
 4. Apply the changes and close the dialog.
 
-<center><img src="https://resources.jetbrains.com/help/img/idea/2023.3/copyright_dialog.png" alt="copy right" width="80%" height="auto"></center>
+<p align="center"><img src="https://resources.jetbrains.com/help/img/idea/2023.3/copyright_dialog.png" alt="copy right" width="80%" height="auto"></p>
 
 After that you can add the copyright to the necessary files.
 
