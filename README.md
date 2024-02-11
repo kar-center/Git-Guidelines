@@ -1,27 +1,3 @@
-/* Default colors */
-body {
-  --text-color: #222;
-  --bkg-color: #fff;
-}
-/* Dark theme colors */
-body.dark-theme {
-  --text-color: #eee;
-  --bkg-color: #121212;
-}
-
-/* Styles for users who prefer dark mode at the OS level */
-@media (prefers-color-scheme: dark) {
-  /* defaults to dark theme */
-  body { 
-    --text-color: #eee;
-    --bkg-color: #121212;
-  }
-  /* Override dark mode with light mode styles if the user decides to swap */
-  body.light-theme {
-    --text-color: #222;
-    --bkg-color: #fff;
-  }
-}
 # Kar Center Git Guidelines and Specifications
 
 - [How to configure git](#how-to-configure-git)
