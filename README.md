@@ -21,7 +21,7 @@
 - [Versioning Policy ](#version-controlling)
 - [Copyright and License Tags](#copyright-and-license-tags)
     - [In JetBrains IDE's](#in-jetbrains-ides)
-
+- [How to activate Intellij Free Tril Again](#how-to-activate-intellij-free-tril-again)
 ## How to Configure Git
 - Be sure to config both the user.name, user.email and default branch name in your local git config
 
@@ -317,3 +317,11 @@ After that you can add the copyright to the necessary files.
     A node may include files that belong to different scopes. In this case, copyright notices will be generated according to the assigned profiles.
 
     If a node contains a file that doesn't belong to any scope, the IDE will assign the default profile to it.
+
+
+## How to Activate Intellij Free Tril Again
+### in Linux:
+Open terminal and enter the text below :
+```bash
+rm -rf ~/.config/JetBrains/IntelliJIdea*/eval/*.evaluation.key ~/.config/JetBrains/IntelliJIdea*/options/other.xml ~/.java/.userPrefs/jetbrains/idea
+```
